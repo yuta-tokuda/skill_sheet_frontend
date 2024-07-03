@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - type: bind
+      source: ./app
+      target: /usr/src/app
+    command: sh -c "cd skill_sheet_frontend && yarn start" 
+    ports:
+      - 3001:3000
+    stdin_open: true #標準入力をコンテナと紐付ける
